@@ -1,6 +1,8 @@
 import os
 from tools.Secure_System.update_system import Update_System
 from tools.Secure_System.update_system import Upgrade_System
+from tools.directory_bruteforce.Directory_brute import FUFF
+from tools.directory_bruteforce.Directory_brute import Feroxbuster
 
 def clear_screen():
     os.system('clear')
@@ -56,9 +58,30 @@ while True:
             input("\nPress Enter to continue...")
 
         case 3:
-            clear_screen()
-            print("Directory Bruteforce Selected")
-            input("\nPress Enter to continue...")
+            while True:
+                clear_screen()
+                print("Directory BruteForce tool menue:")
+                print("[1] FUFF")
+                print("[2] Feroxbuster")
+                i2 = int(input("Enter the option: "))
+
+                match i2:
+                    case 1:
+                        print("FFUF Command")
+                        host1 = input("Please enter the host: ")
+                        updater1 = FUFF()
+                        print(updater1.ffuf(host1))
+                    case 2:
+                        print("Feroxbuster command")
+                        host2 = input("Enter the host name: ")
+                        updater2 = Feroxbuster()
+                        print(updater2.feroxbuster(host2))
+                    case 99:
+                        break
+                    
+                    case _:
+                        print("Invalid sub-option selected")
+                        input("\nPress Enter to continue...")
 
         case 4:
             clear_screen()
